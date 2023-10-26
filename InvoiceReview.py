@@ -55,7 +55,10 @@ if st.session_state.raw_invoice is not None:
     st.write(st.session_state.raw_invoice)
 
 # Get unique combinations of Name and Reporting Week
-unique_combinations = st.session_state.raw_invoice[['Name', 'Effective Bill Date']].drop_duplicates()
+try:
+    unique_combinations = st.session_state.raw_invoice[['Name', 'Effective Bill Date']].drop_duplicates()
+except TypeError:
+    st.write("Error: 'raw_invoice' is not available or is None.")
 
 for index, row in unique_combinations.iterrows():
     name = row['Name']
