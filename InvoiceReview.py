@@ -8,6 +8,7 @@ from datetime import datetime
 from io import BytesIO
 import base64
 from openpyxl import Workbook
+import pyxlsb
 
 # Define the Streamlit app
 st.title("Invoice Data Analysis")
