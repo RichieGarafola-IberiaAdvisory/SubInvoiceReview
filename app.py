@@ -110,38 +110,4 @@ if st.button('Save Data to Excel'):
     b64 = base64.b64encode(excel_data).decode('utf-8')
     excel_filename = f"{excel_filename}.xlsx"
     href = f'<a href="data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,{b64}" download="{excel_filename}">Download Excel File</a>'
-    st.markdown(href, unsafe_allow_html=True)
-        
-
-# # Sidebar
-# st.sidebar.header("Data Analysis Options")
-
-# Input field for the number of weeks lookback
-# x_week_lookback = st.sidebar.number_input("Number of Weeks Lookback", min_value=1, value=st.session_state.x_week_lookback, key="x_week_lookback")
-
-# # Add a new column 'Hours Check' to raw_invoice DataFrame
-# if 'raw_invoice' in st.session_state:
-#     st.session_state.raw_invoice_copy['Hours Check'] = ['Y' if total == wsr_hours else 'N' for total, wsr_hours in zip(st.session_state.raw_invoice_copy['Total'], st.session_state.raw_invoice_copy['WSR Hours'])]
-
-# # Function to apply cell color formatting
-# def color_cells(val):
-#     if val == 'N':
-#         return 'background-color: red'
-#     return ''
-
-# # Checkbox to show styled_raw_invoice
-# show_styled_raw_invoice = st.sidebar.checkbox("Show Styled Raw Invoice", key="styled_raw_invoice_checkbox")
-# if show_styled_raw_invoice:
-#     if 'raw_invoice' in st.session_state:
-#         styled_raw_invoice_copy = st.session_state.raw_invoice_copy.style.applymap(color_cells, subset=['Hours Check'])
-#         st.dataframe(styled_raw_invoice_copy, width=1000, height=800)
-
-# # Checkbox to show filtered_raw_invoice
-# show_filtered_raw_invoice_copy = st.sidebar.checkbox("Show Filtered Raw Invoice", key="filtered_raw_invoice_checkbox")
-# if show_filtered_raw_invoice_copy:
-#     if 'raw_invoice' in st.session_state:
-#         filtered_raw_invoice_copy = st.session_state.raw_invoice_copy[st.session_state.raw_invoice_copy['Hours Check'] == 'N']
-#         st.sidebar.subheader("Filtered Raw Invoice")
-#         st.sidebar.write(filtered_raw_invoice_copy)
-        
-        
+    st.markdown(href, unsafe_allow_html=True)        
